@@ -15,29 +15,29 @@ def pregunta_01():
     Complete el código presentado a continuación.
     """
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv('gm_2008_region.csv',sep=",")
 
     # Asigne la columna "life" a `y` y la columna "fertility" a `X`
-    y = ____[____].____
-    X = ____[____].____
+    y = df["life"]
+    X = df["fertility"]
 
     # Imprima las dimensiones de `y`
-    print(____.____)
+    print(y.shape)
 
     # Imprima las dimensiones de `X`
-    print(____.____)
+    print(X.shape)
 
     # Transforme `y` a un array de numpy usando reshape
-    y_reshaped = y.reshape(____, ____)
+    y_reshaped = y.values.reshape(y.shape[0], 1)
 
     # Trasforme `X` a un array de numpy usando reshape
-    X_reshaped = X.reshape(____, ____)
+    X_reshaped = X.values.reshape(X.shape[0], 1)
 
     # Imprima las nuevas dimensiones de `y`
-    print(____.____)
+    print(y_reshaped.shape)
 
     # Imprima las nuevas dimensiones de `X`
-    print(____.____)
+    print(X_reshaped.shape)
 
 
 def pregunta_02():
@@ -47,22 +47,22 @@ def pregunta_02():
     """
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = df = pd.read_csv('gm_2008_region.csv',sep=",")
 
     # Imprima las dimensiones del DataFrame
-    print(____.____)
+    print(df.shape)
 
     # Imprima la correlación entre las columnas `life` y `fertility` con 4 decimales.
-    print(____)
+    print(round((np.corrcoef(df.life, df.fertility)[0][1]),4))
 
     # Imprima la media de la columna `life` con 4 decimales.
-    print(____)
+    print(round((np.mean(df.life)),4))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(____)
+    print(type(df.fertility))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-    print(____)
+    print(round((np.corrcoef(df.life, df.GDP)[0][1]),4))
 
 
 def pregunta_03():
@@ -72,7 +72,7 @@ def pregunta_03():
     """
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = df = pd.read_csv('gm_2008_region.csv',sep=",")
 
     # Asigne a la variable los valores de la columna `fertility`
     X_fertility = ____
@@ -115,7 +115,7 @@ def pregunta_04():
     from ____ import ____
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = df = pd.read_csv('gm_2008_region.csv',sep=",")
 
     # Asigne a la variable los valores de la columna `fertility`
     X_fertility = ____
