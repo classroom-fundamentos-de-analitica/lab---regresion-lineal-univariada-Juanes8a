@@ -91,16 +91,16 @@ def pregunta_03():
     prediction_space = np.linspace(
         X_fertility.min(),
         X_fertility.max(),
-    ).reshape(len(np.linspace(X_fertility.min(),X_fertility.max())), 1)
+    ).reshape(50,1)
 
     # Entrene el modelo usando X_fertility y y_life
-    reg.fit(X_fertility, y_life)
+    reg.fit(X_fertility.values.reshape(-1,1), y_life)
 
     # Compute las predicciones para el espacio de predicción
     y_pred = reg.predict(prediction_space)
 
     # Imprima el R^2 del modelo con 4 decimales
-    print(reg.score(X_fertility, y_pred).round(4))
+    print(reg.score(X_fertility.values.reshape(-1,1), y_life).round(4))
 
 
 def pregunta_04():
